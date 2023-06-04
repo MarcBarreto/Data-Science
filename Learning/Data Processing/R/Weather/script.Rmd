@@ -1,0 +1,58 @@
+```{r}
+df = read.csv("tempo.csv", sep = ";", na.strings = "", stringsAsFactors = T)
+```
+
+```{r}
+head(df)
+
+summary(df)
+```
+
+```{r}
+summary(df$Aparencia)
+
+df[df$Aparencia == "menos", ]$Aparencia = "sol"
+
+df$Aparencia = factor(df$Aparencia)
+
+summary(df$Aparencia)
+```
+
+```{r}
+summary(df$Temperatura)
+
+boxplot(df$Temperatura)
+
+df[!complete.cases(df$Temperatura),]
+
+df[df$Temperatura >= 2 * sd(df$Temperatura, na.rm = T), ]$Temperatura = median(df$Temperatura, na.rm = T)
+
+summary(df$Temperatura)
+
+boxplot(df$Temperatura)
+
+```
+
+```{r}
+summary(df$Umidade)
+
+df[is.na(df$Umidade), ]$Umidade = median(df$Umidade, na.rm = T)
+
+df[df$Umidade < 0 | df$Umidade > 100, ]$Umidade = median(df$Umidade)
+
+summary(df$Umidade)
+
+```
+
+```{r}
+summary(df$Vento)
+
+df[is.na(df$Vento), ]$Vento = "FALSO"
+
+summary(df$Vento)
+```
+
+```{r}
+summary(df)
+```
+

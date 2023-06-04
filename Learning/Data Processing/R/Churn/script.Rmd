@@ -51,7 +51,7 @@ summary(df$Genero)
 ```{r}
 summary(df$Idade)
 
-df[df$Idade < 0 |df$Idade > 120,]$Idade = median(df$Idade)
+df[df$Idade < 0 | df$Idade > 120,]$Idade = median(df$Idade)
 
 summary(df$Idade)
 ```
