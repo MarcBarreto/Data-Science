@@ -10,7 +10,8 @@ Este repositório contém uma variedade de projetos nos quais trabalhei, cada um
 Ao longo dos meus projetos, adquiri habilidades em diversas áreas da Ciência de Dados, incluindo:
 
 * Linguagens de programação: Python e R.
-* Ferramentas e bibliotecas: TensorFlow, Scikit-learn, Pandas, NumPy, Matplotlib, entre outras.
+* Ferramentas: Power BI.
+* Bibliotecas: TensorFlow, PyTorch, Scikit-learn, Pandas, NumPy, Matplotlib, entre outras.
 * Análise estatística e exploratória de dados.
 * Modelagem e avaliação de algoritmos de aprendizado de máquina.
 * Visualização de dados e comunicação eficaz de insights.
