@@ -1,0 +1,96 @@
+Reading DataBase
+```{r}
+df = read.csv("Churn.csv", sep=";", na.strings = "", stringsAsFactors = T)
+head(df)
+```
+Renaming column names
+```{r}
+colnames(df) = c("Id", "Score", "Estado", "Genero", "Idade", "Patrimonio", "Saldo", "Produtos", "TemCartCredito", "Ativo", "Salario", "Saiu")
+head(df)
+```
+
+```{r}
+counts = table(df$Estado)
+barplot(counts, main="Estados", xlab="Estados")
+```
+```{r}
+countsGeneros = table(df$Genero)
+barplot(countsGeneros, main="Generos", xlab="Generos")
+```
+```{r}
+summary(df$Score)
+boxplot(df$Score)
+hist(df$Score)
+```
+
+```{r}
+summary(df$Idade)
+```
+```{r}
+summary(df$Saldo)
+```
+
+```{r}
+df[!complete.cases(df),]
+```
+```{r}
+summary(df$Salario)
+#Atribuindo mediana aos valoras na
+df[is.na(df$Salario),]$Salario = median(df$Salario, na.rm = T)
+df[!complete.cases(df$Salario),]
+```
+
+```{r}
+unique(df$Genero)
+df[is.na(df$Genero) | df$Genero == "M",]$Genero = "Masculino"
+df[df$Genero == "F" | df$Genero == "Fem",]$Genero = "Feminino"
+summary(df$Genero)
+df$Genero = factor(df$Genero)
+summary(df$Genero)
+```
+```{r}
+summary(df$Idade)
+
+df[df$Idade < 0 |df$Idade > 120,]$Idade = median(df$Idade)
+
+summary(df$Idade)
+```
+
+```{r}
+# buscando duplicatas
+x = df[duplicated(df$Id),]
+x
+
+#Apagando pelo índice
+df = df[-c(82),]
+
+x = df[duplicated(df$Id),]
+x
+
+```
+
+```{r}
+unique(df$Estado)
+
+summary(df$Estado)
+
+df[df$Estado %in% c("RP", "TD", "SP"),]$Estado = "RS"
+
+df$Estado = factor(df$Estado)
+
+summary(df$Estado)
+
+```
+
+```{r}
+desv = sd(df$Salario, na.rm = T)
+
+boxplot(df$Salario)
+
+df[df$Salario >= 2 * desv, ]$Salario = median(df$Salario, na.rm = T)
+
+summary(df$Salario)
+boxplot(df$Salario)
+
+```
+
