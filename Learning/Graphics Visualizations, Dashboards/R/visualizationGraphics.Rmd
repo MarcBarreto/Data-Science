@@ -1,0 +1,112 @@
+
+Histogram
+```{r}
+hist(trees$Height)
+
+hist(trees$Height, main = "Árvores", ylab = "Frequência", xlab = "Altura", col="blue")
+
+hist(trees$Height, main ="Árvores", ylab= "Frequência", xlab= "Altura", col="blue", density = 20, breaks = 20)
+```
+
+Densidade
+```{r}
+densidade = density(trees$Height)
+plot(densidade)
+```
+
+Densidade sobre o Histograma
+```{r}
+hist(trees$Height, main = NULL, xlab = NULL, ylab = NULL)
+par(new = TRUE)
+plot(densidade)
+```
+
+Dispersão
+```{r}
+plot(trees$Girth, trees$Volume)
+
+plot(trees$Girth, trees$Volume, main= "Arvores")
+
+plot(trees$Girth, trees$Volume, ylab = "Circunferência", xlab= "Volume", col = "blue", , main = "Arvores")
+
+#muda o elemento do gráfico
+plot(trees$Girth, trees$Volume, ylab = "Circunferência", xlab= "Volume", col = "blue", , main = "Arvores", pch = 20)
+
+# muda o tipo do gráfico
+plot(trees$Girth, trees$Volume, ylab = "Circunferência", xlab= "Volume", col = "blue", , main = "Arvores", pch = 20, type="l")
+
+#Diminui sobreposição
+plot(jitter(trees$Girth), trees$Volume, ylab = "Circunferência", xlab = "Volume", col = "blue", main="Arvores")
+
+```
+
+```{r}
+#Legenda com dimensão categórica
+plot(CO2$conc, CO2$uptake, pch = 20, col = CO2$Treatment)
+legend("bottomright", legend= c("nonchilled", "chilled"), cex=1, fill= c("black", "red"))
+```
+
+```{r}
+#Matriz de visualização
+plot(trees)
+```
+
+```{r}
+#Divisão de Tela
+split.screen(figs= c(2,2))
+screen(1)
+plot(trees$Girth, trees$Volume)
+screen(2)
+plot(trees$Girth, trees$Height)
+screen(3)
+plot(trees$Height, trees$Volume)
+screen(4)
+hist(trees$Volume)
+close.screen(all = TRUE)
+```
+Boxplot
+```{r}
+boxplot(trees$Volume, main = "Árvores", xlab = "volume")
+
+boxplot(trees$Volume, main = "Árvores", xlab= "Volume", col = "blue", horizontal = TRUE)
+
+#Exibindo sem outliers
+boxplot(trees$Volume, main = "Árvores", xlab= "Volume", col = "blue", outline = F)
+
+boxplot(trees$Volume, main = "Árvores", xlab= "Volume", col = "blue", notch = T)
+
+#Visualizando os dados
+boxplot.stats(trees$Height)
+
+#Apenas a informação stats
+boxplot.stats(trees$Height)$stats
+
+#Várias variáveis
+boxplot(trees)
+
+```
+
+Agregação
+```{r}
+InsectSprays
+spray = aggregate(. ~ spray, data = InsectSprays, sum)
+spray
+```
+
+Gráfico de Barras
+```{r}
+barplot(spray$count, col = gray.colors(6), xlab = "Spray", "ylab" = "Total", names.arg = spray$spray)
+box()
+```
+
+Gráfico de Setor - Pizza
+```{r}
+pie(spray$count, labels = spray$spray, main = "Spray", col = c(1:6))
+```
+
+```{r}
+#Adicionando legenda
+pie(spray$count, labels = spray$spray, main = "Spray", col = c(1:6))
+legend("bottomright", legend = spray$spray, cex = 1, fill  = c(1:6))
+```
+

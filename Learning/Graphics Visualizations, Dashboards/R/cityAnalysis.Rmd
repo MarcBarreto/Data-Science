@@ -1,0 +1,65 @@
+```{r}
+df = read.csv("dados.csv", sep = ";", na.strings = "", stringsAsFactors = T)
+```
+
+```{r}
+head(df)
+```
+
+```{r}
+boxplot(df$PIB, main="PIB")
+```
+
+```{r}
+boxplot(df$VALOREMPENHO)
+```
+
+```{r}
+df[!complete.cases(df)]
+```
+
+```{r}
+df[df$PIB >= 2 * sd(df$PIB, na.rm = T),]$PIB = median(df$PIB, na.rm = T)
+
+boxplot(df$PIB, main="PIB")
+```
+
+
+```{r}
+df[df$VALOREMPENHO >= 2 * sd(df$VALOREMPENHO, na.rm = T),]$VALOREMPENHO = median(df$VALOREMPENHO, na.rm = T)
+
+summary(df$VALOREMPENHO)
+
+boxplot(df$VALOREMPENHO, main = "Valor Empenho")
+```
+```{r}
+plot(jitter(df$PIB), df$VALOREMPENHO, main = "PIB x Valor Empenho", xlab = "PIB", ylab = "Valor Empenho")
+```
+
+```{r}
+x = order(df$PIB, decreasing = T)
+
+barplot(df[x[1:5], ]$PIB, main = "5 maiores PIB por Município")
+legend("bottomright", legend = df[x[1:5], ]$MUNICIPIO)
+```
+
+```{r}
+y = order(df$PIB)
+barplot(df[y[1:5],]$PIB, main = "5 Menores PIB por Município")
+legend("bottomright", legend = df[y[1:5], ]$MUNICIPIO)
+```
+
+```{r}
+topEmpenho = order(df$VALOREMPENHO, decreasing = T)
+
+barplot(df[topEmpenho[1:5], ]$VALOREMPENHO, main = "5 Municípios com maior Valor de Empenho")
+legend("bottomright", legend = df[topEmpenho[1:5], ]$MUNICIPIO)
+```
+
+```{r}
+piorEmpenho = order(df$VALOREMPENHO)
+
+barplot(df[piorEmpenho[1:5],]$VALOREMPENHO, main = "5 Piores Municípios por Valor de Empenho")
+legend("bottomright", legend = df[piorEmpenho[1:5], ]$MUNICIPIO)
+```
+

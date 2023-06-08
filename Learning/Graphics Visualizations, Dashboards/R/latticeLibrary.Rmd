@@ -1,0 +1,71 @@
+```{r}
+library(lattice)
+```
+
+```{r}
+bwplot(trees$Volume, main = "Árvores", xlab= "Volume")
+```
+
+```{r}
+# nint - número de eixos(bins), aspect - proporção - type: count, density, percent
+histogram(trees$Volume, main = "Árvores", xlab = "Volume", aspect = 1, type = "percent", nint = 20)
+```
+Histograma Condicional
+```{r}
+chickwts
+
+histogram(chickwts$weight)
+
+#agregação dos dados
+aggregate(chickwts$weight, by = list(chickwts$feed), FUN = sum)
+
+#histograma condicional
+histogram( ~weight | feed, data = chickwts)
+```
+
+Gráfico de dispersão condicional
+```{r}
+CO2
+
+xyplot(CO2$conc ~ CO2$uptake)
+
+#type - origem
+xyplot(CO2$conc ~ CO2$uptake | CO2$Type)
+
+xyplot(CO2$conc ~ CO2$uptake | CO2$Treatment)
+```
+
+```{r}
+esoph
+
+dotplot(esoph$alcgp ~ esoph$ncontrols, data = esoph)
+
+dotplot(esoph$alcgp ~ esoph$ncontrols | esoph$tobgp)
+```
+
+Matriz de dispersão
+```{r}
+splom(~CO2[4:5] | CO2$Type, CO2)
+```
+
+Densidade Condicional
+```{r}
+densityplot(~CO2$conc | CO2$Treatment, plot.points = FALSE)
+
+densityplot(CO2$conc)
+
+densityplot(~CO2$conc | CO2$Treatment)
+```
+
+Gráfico 3D
+```{r}
+OrchardSprays
+cloud(decrease ~ rowpos * colpos, data = OrchardSprays)
+cloud(decrease ~ rowpos * colpos, groups = treatment, data = OrchardSprays)
+```
+
+Level plot
+```{r}
+levelplot(Girth ~ Height * Volume, data = trees)
+```
+
