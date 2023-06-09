@@ -1,0 +1,49 @@
+```{r}
+set.seed(123)
+```
+
+normal distribution
+```{r}
+x = rnorm(1000)
+```
+
+QQ Graph
+```{r}
+qqnorm(x)
+
+qqline(x)
+```
+Shapiro-wilk test
+```{r}
+shapiro.test(x)
+```
+Histogram
+```{r}
+hist(x, main="")
+par(new = T)
+plot(density(x), ylab = "", xlab= "", axes=F)
+```
+
+```{r}
+#install.packages("semTools")
+
+library("semTools")
+
+m = mvrnonnorm(1000, c(1, 2), matrix(c(10,2,2,5), 2, 2), skewness = c(5, 2), kurtosis = c(3,3))
+```
+
+```{r}
+qqnorm(m)
+qqline(m)
+```
+
+```{r}
+shapiro.test(m)
+```
+
+```{r}
+hist(m, main="")
+par(new = T)
+plot(density(m), ylab = "", xlab= "", axes = F, lwd=2.5)
+```
+

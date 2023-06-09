@@ -1,0 +1,20 @@
+```{r}
+install.packages("TeachingSampling")
+
+library("TeachingSampling")
+```
+
+```{r}
+amostra = S.SY(150, 10)
+
+amostra
+```
+
+```{r}
+amostraIris = iris[amostra, ]
+
+dim(amostraIris)
+
+head(amostraIris)
+```
+

@@ -1,0 +1,35 @@
+```{r}
+#install.packages("sampling")
+
+library("sampling")
+```
+
+srswor:  simple sample without replacement;
+srswr: with replacement;
+poisson;
+systematic;
+```{r}
+proporcao = 25
+
+amostraIris = strata(data = iris, stratanames = c("Species"), size = c(rep(proporcao, 3)), method = "srswor")
+```
+
+```{r}
+summary(amostraIris)
+```
+
+```{r}
+infert
+summary(infert)
+```
+
+```{r}
+amostraInfert = strata(data = infert, stratanames = c("education"), size = c(5, 48, 47), method = "srswor")
+```
+
+```{r}
+summary(amostraInfert)
+
+dim(amostraInfert)
+```
+
