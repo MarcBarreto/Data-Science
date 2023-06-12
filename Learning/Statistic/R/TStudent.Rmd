@@ -1,0 +1,33 @@
+t de Student
+Salário de cientistas 75 por hora. Am,ostra 9. S = 10. Qual a probabilidade de ser menor que 80 hora?
+t = 1.5(graus de liberdade)
+```{r}
+pt(1.5, 8)
+```
+Qual a probabilidade de ser maior que 80
+```{r}
+pt(1.5, 8, lower.tail = F)
+
+1 - pt(1.5, 8)
+```
+
+Distribuiçõa Binomial
+x = eventos, p = probabilidades, size = eventos
+```{r}
+# se jogar uma moeda 5 vezes, qual a prob. de dar cara 3 vezes?
+dbinom(x= 3, size = 5, prob = 0.5)
+```
+
+Passando 4 sinais de quatro tempos cada. Qual a probabilidade de pegar 0, 1, 2, 3 e 4 sinais verdes?
+```{r}
+pbinom(q = 4, size =4, prob = 0.25)
+```
+
+Se fizer a prova de um concurso com 12 questões. "Chutando" todas as questões, qual a probabilidade de acertar 7 questões? (4 alternativas cada questão)
+```{r}
+dbinom(x = 7, size = 12, prob= 0.25)
+```
+Passando 4 sinais de quatro tempos cada. Qual a probabilidade de pegar 3 ou mais sinais verdes?
+```{r}
+pbinom(q = 2, size = 4, prob = 0.25, lower.tail = F)
+```

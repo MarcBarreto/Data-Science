@@ -1,0 +1,30 @@
+```{r}
+tratamento = read.csv("anova.csv", sep = ";")
+head(tratamento)
+```
+
+```{r}
+boxplot(tratamento$Horas ~ tratamento$Remedio)
+```
+Análise de variância
+H0 = não há diferença significativa
+```{r}
+an = aov(Horas ~ Remedio, data = tratamento)
+summary(an)
+```
+
+```{r}
+an = aov(Horas ~ Remedio * Sexo, data = tratamento)
+summary(an)
+```
+
+Se houver diferença o teste de Tukey é executado
+```{r}
+tukey = TukeyHSD(an)
+tukey
+```
+
+```{r}
+plot(tukey)
+```
+

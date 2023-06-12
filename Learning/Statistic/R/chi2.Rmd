@@ -1,0 +1,19 @@
+Quiquadrado
+```{r}
+novela = matrix(c(19, 6, 41, 32), nrow = 2, byrow = T)
+rownames(novela) = c("Masculino", "Feminino")
+colnames(novela) = c("Assiste", "NaoAssiste")
+novela
+```
+Valor de p é maior que 0,05 não há evidências da diferença significativa (hipótese nula)
+```{r}
+chisq.test(novela)
+```
+
+```{r}
+novela = matrix(c(22, 3, 43, 32), nrow = 2, byrow = T)
+rownames(novela) = c("Masculino", "Feminino")
+colnames(novela) = c("Assiste", "NaoAssiste")
+chisq.test(novela)
+```
+
