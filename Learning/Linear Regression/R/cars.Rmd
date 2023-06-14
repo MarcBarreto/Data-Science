@@ -1,0 +1,45 @@
+```{r}
+#install.packages("corrgram")
+library(corrgram)
+head(cars)
+dim(cars)
+```
+correlation coefficients
+```{r}
+cor(cars)
+```
+
+```{r}
+corrgram(cars, order = TRUE, lower.panel = panel.shade, upper.panel = panel.pie, text.panel = panel.txt, main = "Carros")
+```
+
+```{r}
+model = lm(speed ~ dist, data = cars)
+model
+```
+
+```{r}
+plot(speed ~ dist, data = cars, ylab = "Speed", xlab = "Distance", main = "Cars")
+abline(model)
+```
+
+```{r}
+predict(model, data.frame(dist = 22))
+```
+
+```{r}
+summary(model)
+```
+
+```{r}
+hist(model$residuals)
+```
+
+```{r}
+model$fitted.values
+```
+
+```{r}
+plot(model$fitted.values, cars$dist)
+```
+

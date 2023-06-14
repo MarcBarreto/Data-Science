@@ -1,0 +1,56 @@
+```{r}
+election = read.csv("Eleicao.csv", sep = ";", header= T)
+head(election)
+```
+
+```{r}
+plot(election$DESPESAS, election$SITUACAO)
+```
+
+```{r}
+summary(election)
+```
+
+```{r}
+cor(election$DESPESAS, election$SITUACAO)
+```
+
+```{r}
+model = glm(SITUACAO ~ DESPESAS, data = election, family = "binomial")
+summary(model)
+```
+
+```{r}
+plot(election$DESPESAS, election$SITUACAO, col = "red", pch = 20)
+points(election$DESPESAS, model$fitted, pch = 4)
+```
+
+```{r}
+result = predict(model, newdata = election, type = "response")
+result = result >= 0.5
+result
+
+```
+
+```{r}
+confusion_matrix = table(result, election$SITUACAO)
+accuracy = (confusion_matrix[1] + confusion_matrix[4]) / sum(confusion_matrix)
+accuracy
+```
+
+```{r}
+candidates = read.csv("NovosCandidatos.csv", sep = ";", header = T)
+
+head(candidates)
+```
+
+```{r}
+result2 = predict(model, newdata = candidates, type = "response")
+result2
+```
+
+```{r}
+result2  = result2 >= 0.5
+result2
+```
+

@@ -1,0 +1,52 @@
+```{r}
+#install.packages("corrgram")
+library(corrgram)
+
+head(mtcars)
+```
+
+```{r}
+cor(mtcars[1:4])
+
+corrgram(mtcars[1:4], order = TRUE, lower.panel = panel.shade, upper.panel = panel.pie, text.panel = panel.txt, main = "Cars")
+```
+
+```{r}
+plot(mtcars$mpg ~ mtcars$disp, ylab = "Consumo", xlab = "Cilindradas", main = "Carros")
+```
+
+```{r}
+model = lm(mpg ~ disp, data = mtcars)
+model
+```
+
+```{r}
+summary(model)
+```
+
+```{r}
+plot(mpg ~ disp, data = mtcars, ylab = "Consumo", xlab = "Cilindradas", main = "Carros")
+abline(model)
+```
+
+```{r}
+predict(model, data.frame(disp = 200))
+```
+
+```{r}
+model2 = lm(mpg ~ disp + hp + cyl, data = mtcars)
+model2
+```
+
+```{r}
+summary(model2)
+```
+
+```{r}
+predict(model2, data.frame(disp = 200, hp = 100, cyl = 4))
+```
+
+```{r}
+
+```
+
