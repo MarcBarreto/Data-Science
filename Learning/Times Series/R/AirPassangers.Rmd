@@ -1,0 +1,77 @@
+```{r}
+install.packages("forecast")
+```
+
+```{r}
+library(forecast)
+```
+
+```{r}
+AirPassengers
+
+start(AirPassengers)
+end(AirPassengers)
+frequency(AirPassengers)
+```
+
+```{r}
+plot(AirPassengers)
+plot(aggregate(AirPassengers))
+```
+
+```{r}
+subst <- window(AirPassengers, start = c(1960,1), end = c(1960,12))
+plot(subst)
+```
+decompose
+```{r}
+dec = decompose(AirPassengers)
+dec
+```
+
+```{r}
+attributes(dec)
+
+dec$seasonal
+```
+
+```{r}
+plot(dec$x)
+```
+
+
+```{r}
+plot(dec$seasonal)
+```
+
+```{r}
+plot(dec$trend)
+```
+
+```{r}
+plot(dec$random)
+```
+
+smoothing
+```{r}
+ets = ets(AirPassengers)
+ets
+```
+
+```{r}
+predict = forecast(ets, h = 12)
+plot(predict)
+predict
+```
+
+```{r}
+arima = auto.arima(AirPassengers)
+arima
+```
+
+```{r}
+arima_predict = forecast(arima, h = 12)
+plot(arima_predict)
+arima_predict
+```
+
