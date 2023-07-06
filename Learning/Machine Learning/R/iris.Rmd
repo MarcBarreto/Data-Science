@@ -1,0 +1,37 @@
+```{r}
+install.packages("forecast")
+install.packages("rpart")
+```
+
+```{r}
+library(rpart)
+library(forecast)
+```
+```{r}
+iris
+```
+
+
+```{r}
+model = rpart(Sepal.Length ~ Sepal.Width + Petal.Length + Petal.Width + Species, data = iris)
+summary(model)
+```
+
+```{r}
+plot(model)
+text(model)
+```
+
+```{r}
+pred = predict(model, iris)
+head(pred)
+```
+
+```{r}
+compare = cbind(pred, iris$Sepal.Length, pred ~ iris$Sepal.Length)
+head(compare)
+```
+```{r}
+accuracy(pred, iris$Sepal.Length)
+```
+

@@ -1,0 +1,39 @@
+```{r}
+#install.packages("e1071")
+library(e1071)
+```
+
+```{r}
+df = read.csv("Credit.csv")
+head(df)
+```
+
+```{r}
+df$class <- as.factor(df$class)
+```
+
+```{r}
+hld = sample(2, 1000, replace = T, prob = c(0.7, 0.3))
+train_data <- df[hld == 1, ]
+test_data <- df[hld == 2, ]
+```
+
+```{r}
+model <- naiveBayes(class ~ ., data = train_data)
+model
+```
+
+```{r}
+pred <- predict(model, test_data)
+```
+
+```{r}
+confusion_matrix = table(test_data$class, pred)
+confusion_matrix
+```
+
+```{r}
+accuracy = (confusion_matrix[1] + confusion_matrix[4]) / sum(confusion_matrix)
+accuracy
+```
+

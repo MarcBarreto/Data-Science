@@ -1,0 +1,48 @@
+```{r}
+#install.packages("rpart", dependencies = T)
+library(rpart)
+```
+
+```{r}
+df = read.csv("Credit.csv")
+head(df)
+```
+
+```{r}
+hld = sample(2, 1000, replace = T, prob = c(0.7, 0.3))
+train = df[hld == 1,]
+test = df[hld == 2,]
+```
+
+```{r}
+model = rpart(class ~ ., data = train, method = "class")
+```
+
+```{r}
+plot(model)
+text(model, use.n = T, all = TRUE)
+```
+
+```{r}
+pred = predict(model, newdata=test)
+head(pred)
+```
+
+```{r}
+comp = cbind(test, pred)
+comp
+```
+
+```{r}
+comp['Result'] = ifelse(comp$bad >= 0.5, "bad", "good")
+comp
+```
+
+```{r}
+confusion_matrix = table(comp$class, comp$Result)
+confusion_matrix
+```
+```{r}
+accuracy = (confusion_matrix[1] + confusion_matrix[4]) / sum(confusion_matrix)
+accuracy
+```
