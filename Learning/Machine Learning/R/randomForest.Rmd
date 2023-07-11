@@ -1,0 +1,44 @@
+```{r}
+install.packages("e1071")
+install.packages("randomForest")
+library(e1071)
+library(randomForest)
+```
+
+```{r}
+credit = read.csv("Credit.csv")
+credit$class <- as.factor(credit$class)
+```
+
+```{r}
+set.seed(234)
+smp <- sample(2, 1000, replace = T, prob = c(0.7, 0.3))
+credit_train <- credit[smp == 1, ]
+credit_test <- credit[smp == 2, ]
+```
+
+SVM Model
+```{r}
+model <- svm(class ~ ., credit_train)
+pred <- predict(model, credit_test)
+confusion_matrix = table(credit_test$class, pred)
+accuracy <- (confusion_matrix[1] + confusion_matrix[4]) / sum(confusion_matrix)
+accuracy
+```
+
+Random Forest Model
+```{r}
+rndForest <- randomForest(class ~ ., data = credit_train)
+col = importance(rndForest)
+col
+varImpPlot(rndForest)
+```
+
+```{r}
+model = svm(class ~ credit_amount + age + duration + checking_status, data = credit_train)
+new_pred = predict(model, credit_test)
+new_confusion = table(credit_test$class, new_pred)
+new_accuracy = (new_confusion[1] + new_confusion[4]) / sum(new_confusion)
+new_accuracy
+```
+

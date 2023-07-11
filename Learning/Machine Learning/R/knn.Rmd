@@ -1,0 +1,29 @@
+```{r}
+install.packages("class")
+library(class)
+```
+
+```{r}
+head(iris)
+summary(iris)
+```
+
+```{r}
+smp = sample(2, 150, replace = T, prob = c(0.7, 0.3))
+iris_train = iris[smp == 1, ]
+iris_test = iris[smp == 2, ]
+```
+
+```{r}
+predict = knn(iris_train[,1:4], iris_test[, 1:4], iris_train[,5], k = 3)
+```
+
+```{r}
+confusion_matrix = table(iris_test$Species, predict)
+confusion_matrix
+```
+
+```{r}
+accuracy = (confusion_matrix[1] + confusion_matrix[5] + confusion_matrix[9]) / sum(confusion_matrix)
+accuracy
+```

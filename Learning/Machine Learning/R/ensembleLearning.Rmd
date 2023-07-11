@@ -1,0 +1,29 @@
+```{r}
+#install.packages("randomForest")
+library(randomForest)
+```
+
+```{r}
+credit = read.csv("Credit.csv")
+head(credit)
+credit$class = as.factor(credit$class)
+```
+
+```{r}
+smp = sample(2, 1000, replace = TRUE, prob = c(0.7, 0.3))
+credit_train = credit[smp == 1, ]
+credit_test = credit[smp == 2, ]
+```
+
+```{r}
+model = randomForest(class ~ ., data = credit_train, ntree = 100, importance = T)
+plot(model)
+```
+
+```{r}
+prd = predict(model, credit_test)
+confusion_matrix = table(credit_test$class, prd)
+accuracy = (confusion_matrix[1] + confusion_matrix[4]) / sum(confusion_matrix)
+accuracy
+```
+
