@@ -1,7 +1,7 @@
 # ALPR System for UK Cars
 
 ## Overview
-This repository contains a Automatic License Plate Recognition (ALPR) system for cars in the United Kingdom. The system is capable of detecting and recognizing license plates from images and videos of vehicles. It utilizes a deep learning model for license plate detection and recognition.
+This repository contains an Automatic License Plate Recognition (ALPR) system for cars in the United Kingdom. The system is capable of detecting and recognizing license plates from images and videos of vehicles. It utilizes a deep learning model for license plate detection and recognition.
 
 ## Contents
 
@@ -23,4 +23,4 @@ An example image of a UK license plate can be found in this repository with the 
 
 ## Results
 
-The results of the ALPR system, including the tracking ID, license plate text, and confidence score, can be found in the `results` folder or in [google drive](https://drive.google.com/file/d/1_vJI9-uhFFNEV_XghzX43ctzGO8tENJe/view?usp=drive_link).
+The results of the ALPR system, including the tracking ID, license plate text, and confidence score, can be found in the `results` folder in CSV format or video format in [google drive](https://drive.google.com/file/d/1_vJI9-uhFFNEV_XghzX43ctzGO8tENJe/view?usp=drive_link).
