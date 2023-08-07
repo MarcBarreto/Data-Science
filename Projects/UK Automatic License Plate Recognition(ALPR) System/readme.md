@@ -23,4 +23,4 @@ An example image of a UK license plate can be found in this repository with the 
 
 ## Results
 
-The results of the ALPR system, including the tracking ID, license plate text, and confidence score, can be found in the `results` folder.
+The results of the ALPR system, including the tracking ID, license plate text, and confidence score, can be found in the `results` folder or in [google drive](https://drive.google.com/file/d/1_vJI9-uhFFNEV_XghzX43ctzGO8tENJe/view?usp=drive_link).
