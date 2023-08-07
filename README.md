@@ -1,17 +1,29 @@
-# Portfólio de Ciência de Dados
-Bem-vindo(a) ao meu Portfólio de Ciência de Dados! Aqui você encontrará uma coleção dos meus projetos e experiências relacionados à área de Ciência de Dados.
+# Data Science and Computer Vision Portfolio
 
-Este repositório contém uma variedade de projetos nos quais trabalhei, cada um deles focado em um aspecto específico da Ciência de Dados. Alguns exemplos de projetos incluem:
+Welcome to my Data Science and Computer Vision Portfolio! Here you will find a collection of my projects and experiences related to the fields of Data Science and Computer Vision.
 
-* Análise exploratória de dados: Explorei conjuntos de dados complexos, identificando padrões, tendências e relações ocultas para obter insights significativos.
-* Modelagem preditiva: Desenvolvi modelos preditivos utilizando algoritmos de aprendizado de máquina e técnicas estatísticas para prever comportamentos futuros e tomar decisões embasadas.
-* Visualização de dados: Criei visualizações interativas e intuitivas para comunicar informações complexas de maneira clara e eficaz.
+This repository contains a diverse range of projects that I have worked on, encompassing both Data Science and Computer Vision aspects. Some of the projects include:
 
-Ao longo dos meus projetos, adquiri habilidades em diversas áreas da Ciência de Dados, incluindo:
+- **Exploratory Data Analysis:** I have explored complex datasets, identifying patterns, trends, and hidden relationships to gain meaningful insights.
+- **Predictive Modeling:** Utilizing machine learning algorithms and statistical techniques to build predictive models that can forecast future behaviors and support informed decision-making.
+- **Data Visualization:** Creating interactive and intuitive visualizations to communicate complex information clearly and effectively.
 
-* Linguagens de programação: Python e R.
-* Ferramentas: Power BI.
-* Bibliotecas: TensorFlow, PyTorch, Scikit-learn, Pandas, NumPy, Matplotlib, entre outras.
-* Análise estatística e exploratória de dados.
-* Modelagem e avaliação de algoritmos de aprendizado de máquina.
-* Visualização de dados e comunicação eficaz de insights.
+In addition to traditional Data Science projects, I have also ventured into the domain of Computer Vision, where I have undertaken projects related to:
+
+- **Automatic License Plate Recognition (ALPR):** Developing systems that can automatically detect and recognize license plates from images or video streams, aiding in various applications such as traffic enforcement, parking management, and toll collection.
+- **Speed Estimation:** Building algorithms to estimate vehicle speeds from video data, which can be valuable for traffic monitoring and law enforcement purposes.
+
+Throughout my projects, I have acquired a diverse set of skills in various areas, including:
+
+- **Programming Languages:** Proficient in Python and R for Data Science tasks, as well as implementing Computer Vision algorithms.
+- **Tools:** Utilizing Power BI for data visualization and relevant Computer Vision libraries and frameworks.
+- **Libraries:** Experience with TensorFlow, PyTorch, Scikit-learn, Pandas, NumPy, Matplotlib, OpenCV, and other essential libraries.
+- **Statistical and Exploratory Data Analysis:** Gaining insights and understanding data patterns through rigorous analysis.
+- **Modeling and Evaluation:** Building and evaluating machine learning and Computer Vision models to achieve high performance.
+- **Data Visualization:** Effectively communicating complex information and findings through visual representations.
+
+This portfolio showcases my passion for both Data Science and Computer Vision, and I am excited to share my work with you. If you have any questions or would like to collaborate on a project, feel free to reach out to me.
+
+Thank you for visiting!
+
+---
